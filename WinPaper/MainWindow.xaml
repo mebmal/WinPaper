@@ -1,0 +1,36 @@
+﻿<Window x:Class="WinPaper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WinPaper" Height="250" Width="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="/winpaper.ico">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Lien de l'image :" FontWeight="Bold"/>
+        <TextBox x:Name="UrlTextBox" Grid.Row="1" Margin="0,5,0,10" />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,5,0,5">
+            <CheckBox x:Name="DynamicCheckBox" Content="Affichage dynamique" VerticalAlignment="Center" Margin="0,0,15,0" Checked="DynamicCheckBox_Checked" Unchecked="DynamicCheckBox_Unchecked"/>
+            <TextBlock Text="Fréquence (sec):" VerticalAlignment="Center"/>
+            <TextBox x:Name="IntervalTextBox" Width="60" Margin="5,0,0,0" IsEnabled="False"/>
+        </StackPanel>
+
+        <Button x:Name="ToggleButton"
+        Content="Appliquer"
+        Grid.Row="3"
+        Width="120"
+        Height="35"
+        HorizontalAlignment="Right"
+        Margin="0,10,0,0"
+        Background="Green"
+        Foreground="White"
+        Click="ToggleButton_Click"/>
+    </Grid>
+</Window>

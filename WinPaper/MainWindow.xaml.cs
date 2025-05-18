@@ -15,6 +15,7 @@ using Microsoft.Win32;
 using MessageBox = System.Windows.MessageBox;
 using IWshRuntimeLibrary;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace WinPaper
 {
@@ -130,11 +131,11 @@ namespace WinPaper
         private void CreateStartMenuShortcut()
         {
             string shortcutPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu),
+                Environment.GetFolderPath(Environment.SpecialFolder.StartMenu),
                 "Programs",
                 "WinPaper.lnk");
 
-            string exePath = Assembly.GetExecutingAssembly().Location;
+            string exePath = Process.GetCurrentProcess().MainModule.FileName;
 
             if (!System.IO.File.Exists(shortcutPath))
             {
